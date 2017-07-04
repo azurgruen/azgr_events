@@ -20,6 +20,7 @@ plugin.tx_azgrevents_events {
 	}
 	settings {
 		apikey = {$plugin.tx_azgrevents_events.settings.apikey}
+		includejQuery = {$plugin.tx_azgrevents_events.settings.includejQuery}
 	}
 	_LOCAL_LANG {
 		default {

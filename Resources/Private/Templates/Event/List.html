@@ -4,26 +4,31 @@
 <f:section name="main">
 
 <v:asset.script fluid="true">
-	<![CDATA[ var events = [ ]]>
+	var events = [ 
 	<f:for each="{events}" as="event" iteration="iterator">
-		<![CDATA[ { ]]>
+		{
 			id : '{event.uid}',
 			title : '{event.name}',
 			content : '<f:for each="{event.dates}" as="date"><f:format.date format="{f:translate(key:'dateFormatLong')}">{date}</f:format.date><br></f:for>',
 			location : '{event.location}',
 			ticketurl : '{event.ticketurl}',
-			coords : <![CDATA[ { ]]>
-				lat : {event.lat},
-				lng : {event.lng}
-			<![CDATA[ } ]]>
-		<![CDATA[ } ]]>
+			coords : {v:format.plaintext(content:'{')}
+				lat: {event.lat},
+				lng: {event.lng}
+			{v:format.plaintext(content:'}')}
+		}
 		<f:if condition="{iterator.cycle} < {iterator.total}">,</f:if>
 	</f:for>
-	<![CDATA[ ]; ]]>
+	];
 </v:asset.script>
 
+<f:if condition="{settings.includejQuery}">
+	<v:asset.script path="https://code.jquery.com/jquery-3.2.1.min.js" external="true" standalone="true" />
+</f:if>
 <v:asset.script path="typo3conf/ext/azgr_events/Resources/Public/Javascript/map.js" />
-<v:asset.script path="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAMPL8d2fIOg6NnHG1RSNJ5qUZzNVQTyA&callback=map.init" external="true" standalone="true" />
+<v:asset.script path="https://maps.googleapis.com/maps/api/js?key={settings.apikey}&callback=map.init" external="true" standalone="true" />
+
+<div class="map"></div>
 
 <div class="accordion">
 	<f:for each="{events}" as="event">

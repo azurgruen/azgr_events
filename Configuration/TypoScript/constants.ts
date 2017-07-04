@@ -13,7 +13,9 @@ plugin.tx_azgrevents_events {
     storagePid =
   }
   settings {
-	# cat=plugin.tx_azgrevents_events//a; type=string; label=Google Maps API-Key
+	# cat=plugin.tx_azgrevents_events/general/a; type=string; label=Google Maps API-Key
 	apikey =
+	# cat=plugin.tx_azgrevents_events/general/a; type=boolean; label=Include jQuery
+    includejQuery = 0
   }
 }
