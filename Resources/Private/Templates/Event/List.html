@@ -1,0 +1,115 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true" xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<v:asset.script fluid="true">
+	<![CDATA[ var events = [ ]]>
+	<f:for each="{events}" as="event" iteration="iterator">
+		<![CDATA[ { ]]>
+			id : '{event.uid}',
+			title : '{event.name}',
+			content : '<f:for each="{event.dates}" as="date"><f:format.date format="{f:translate(key:'dateFormatLong')}">{date}</f:format.date><br></f:for>',
+			location : '{event.location}',
+			ticketurl : '{event.ticketurl}',
+			coords : <![CDATA[ { ]]>
+				lat : {event.lat},
+				lng : {event.lng}
+			<![CDATA[ } ]]>
+		<![CDATA[ } ]]>
+		<f:if condition="{iterator.cycle} < {iterator.total}">,</f:if>
+	</f:for>
+	<![CDATA[ ]; ]]>
+</v:asset.script>
+
+<v:asset.script path="typo3conf/ext/azgr_events/Resources/Public/Javascript/map.js" />
+<v:asset.script path="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAMPL8d2fIOg6NnHG1RSNJ5qUZzNVQTyA&callback=map.init" external="true" standalone="true" />
+
+<div class="accordion">
+	<f:for each="{events}" as="event">
+		<label for="t{event.uid}">
+	        <span class="row">
+	            <span class="col-xs-7 col-sm-3">
+					<h2 class="linecrop">{event.name}</h2>
+	            </span>
+	            <span class="col-sm-3 hidden-xs">
+					<f:if condition="{event.countDates} > 1">
+	            		<f:then>
+							<f:format.date format="{f:translate(key:'dateFormat')}">{event.firstDate}</f:format.date> -
+							<f:format.date format="{f:translate(key:'dateFormat')}">{event.lastDate}</f:format.date>
+						</f:then>
+						<f:else>
+							<f:format.date format="{f:translate(key:'dateFormat')}">{event.firstDate}</f:format.date>
+						</f:else>
+					</f:if>
+	            </span>
+	            <span class="col-sm-3 hidden-xs linecrop">
+					{event.location}
+	            </span>
+	            <span class="col-xs-5 col-sm-3">
+	            	<span class="hidden-xs hidden-sm">
+						<f:if condition="{event.countTickets} > 1">
+		            		<f:then>
+		            			<f:format.currency currencySign="{event.currency}">{event.ticketsFrom}</f:format.currency> -
+								<f:format.currency currencySign="{event.currency}">{event.ticketsTo}</f:format.currency>
+		            		</f:then>
+							<f:else>
+								<f:format.currency currencySign="{event.currency}">{event.ticketsFrom}</f:format.currency>
+							</f:else>
+						</f:if>
+	            	</span>
+					<a class="btn arrow primary gatrack" href="{event.ticketurl}" target="_blank" data-cat="Ticket-Button" data-act="List" data-label="{event.name}">
+						<f:translate key="label.ticketButtonShort" />
+					</a>
+	            </span>
+	        </span>
+		</label>
+		<input class="pseudocheck" type="checkbox" id="t{event.uid}">
+	    <div class="content" itemscope itemtype="http://schema.org/Event">
+		    <meta itemprop="name" content="{event.eventtype.name} {event.name}" />
+		    <meta itemprop="url" content="https://azurgruen.de/" />
+			<f:comment><meta itemprop="url" content="{f:uri.page(pageUid:'1', absolute:'true', addQueryString:'true',  argumentsToBeExcludedFromQueryString:'{0:\'L\'}')}" /></f:comment>
+	        <div class="row">
+	            <div class="col-sm-3">
+		            <v:variable.set name="image" value="{event.images -> v:iterator.first()}" />
+					<f:image src="{image.uid}" treatIdAsReference="true" width="500c" height="300c" />
+	            </div>
+				<div class="col-sm-3">
+					<h4><f:translate key="label.dates" /></h4>
+					<f:for each="{event.dates}" as="date">
+						<div itemprop="startDate" content="{f:format.date(date:date, format:'c')}"><f:format.date format="{f:translate(key:'dateFormatLong')}">{date}</f:format.date></div>
+					</f:for>
+				</div>
+				<div class="col-sm-3" itemprop="location" itemscope itemtype="http://schema.org/Place">
+					<h4><f:translate key="label.location" /></h4>
+					<img src="https://maps.googleapis.com/maps/api/staticmap?size=400x200&zoom=13&markers=%7C%7C{event.lat},{event.lng}&key=AIzaSyAx9EWDzWc7-EXD9A-zBDYyDp2JvWlSmkE">
+					<meta itemprop="name" content="{event.location}" />
+					<div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+						<meta itemprop="streetAddress" content="{event.street} {event.streetNumber}" />
+						<meta itemprop="postalCode" content="{event.zip}" />
+						<meta itemprop="addressLocality" content="{event.city}" />
+					</div>
+	            </div>
+				<div class="col-sm-3" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+					<h4><f:translate key="label.tickets" /></h4>
+					<meta itemprop="url" content="{event.ticketurl}" />
+					<meta itemprop="offerCount" content="{event.countTickets}" />
+					<table>
+					<f:for each="{event.tickets}" as="ticket">
+						<tr itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<td>{ticket.label}</td>
+							<td>
+								<meta itemprop="priceCurrency" content="{event.currency}" />
+								<meta itemprop="price" content="{ticket.price}" />
+								<f:format.currency currencySign="{event.currency}">{ticket.price}</f:format.currency>
+							</td>
+						</tr>
+					</f:for>
+					</table>
+				</div>
+	        </div>
+	    </div>
+    </f:for>
+</div>
+
+</f:section>

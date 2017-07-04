@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2017-02-13T21:39:50Z" product-name="azgr_events">
+		<header/>
+		<body>
+			<trans-unit id="sectionlabel.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.coordinates">
+				<source>Coordinates</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.dates">
+				<source>Dates</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.tickets">
+				<source>Tickets</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.misc">
+				<source>Misc</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event">
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.eventtype">
+				<source>Eventtype</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.location">
+				<source>Location</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.street_number">
+				<source>Street Number</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.zip">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.lat">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.lng">
+				<source>Longitude</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event.images">
+				<source>Images</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event.ticketurl">
+				<source>Ticket URL</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.currency">
+				<source>Ticket currency</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.count_tickets">
+				<source>Number of ticket types</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.count_dates">
+				<source>Number of Dates</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.label_ticket">
+				<source>Ticket label</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.price_ticket">
+				<source>Ticket price</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.misc">
+				<source>Misc</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_eventtype">
+				<source>Eventtype</source>
+			</trans-unit>
+		</body>
+	</file>
+	
+	<file source-language="de" datatype="plaintext" original="messages" date="2017-02-13T21:39:50Z" product-name="azgr_events">
+		<header/>
+		<body>
+			<trans-unit id="sectionlabel.address">
+				<source>Adresse</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.coordinates">
+				<source>Koordinaten</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.dates">
+				<source>Dates</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.tickets">
+				<source>Tickets</source>
+			</trans-unit>
+			<trans-unit id="sectionlabel.misc">
+				<source>Misc</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event">
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.eventtype">
+				<source>Eventtype</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.location">
+				<source>Location</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.street_number">
+				<source>Street Number</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.zip">
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.lat">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.lng">
+				<source>Longitude</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event.images">
+				<source>Images</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_azgrevents_domain_model_event.ticketurl">
+				<source>Ticket URL</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.currency">
+				<source>Ticket currency</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.count_tickets">
+				<source>Number of ticket types</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.count_dates">
+				<source>Number of Dates</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.label_ticket">
+				<source>Ticket label</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.price_ticket">
+				<source>Ticket price</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_event.misc">
+				<source>Misc</source>
+			</trans-unit>
+			<trans-unit id="tx_azgrevents_domain_model_eventtype">
+				<source>Eventtype</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

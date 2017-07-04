@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="main">
+
+<f:for each="{events}" as="event">
+	<div class="event-teaser" itemscope itemtype="http://schema.org/Event">
+		<div class="box">
+			<div>
+				<meta itemprop="name" content="{event.eventtype.name} {event.name}" />
+				<meta itemprop="url" content="https://azurgruen.de/" />
+				<div class="event-info city" itemprop="location" itemscope itemtype="http://schema.org/Place">
+					{event.name}
+					<meta itemprop="name" content="{event.location}" />
+					<div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+						<meta itemprop="streetAddress" content="{event.street} {event.streetNumber}" />
+						<meta itemprop="postalCode" content="{event.zip}" />
+						<meta itemprop="addressLocality" content="{event.city}" />
+					</div>
+				</div>
+				<div class="event-info date" itemprop="startDate" content="{f:format.date(date:event.firstDate, format:'c')}">
+					<f:if condition="{event.countDates} > 1">
+	            		<f:then>
+							<f:format.date format="{f:translate(key:'dateFormat')}">{event.firstDate}</f:format.date> -
+							<f:format.date format="{f:translate(key:'dateFormat')}">{event.lastDate}</f:format.date>
+						</f:then>
+						<f:else>
+							<f:format.date format="{f:translate(key:'dateFormat')}">{event.firstDate}</f:format.date>
+						</f:else>
+					</f:if>
+				</div>
+				<div class="event-info location">{event.location}</div>
+			</div>
+		</div>
+		<div itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+			<meta itemprop="lowPrice" content="{event.ticketsFrom}" />
+			<meta itemprop="highPrice" content="{event.ticketsTo}" />
+			<meta itemprop="priceCurrency" content="{event.currency}" />
+			<a class="btn arrow primary" itemprop="url" href="{event.ticketurl}" target="_blank">
+				<f:translate key="label.ticketButton" />
+			</a>
+		</div>
+	</div>
+</f:for>
+
+</f:section>
